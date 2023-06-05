@@ -1,0 +1,77 @@
+<!--
+ * @Author       : 许七安
+ * @Date         : 2023-06-05 16:33:43
+ * @LastEditors  : hyman
+ * @LastEditTime : 2023-06-05 17:02:26
+ * @Description  : 请填写简介
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 适配移动端屏幕 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- 导入bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Document</title>
+    <!-- style -->
+    <style>
+        .bgcontainer {
+            padding: 20;
+            margin: 20;
+        }
+    </style>
+    <script>
+        function createButtons() {
+
+            var pages = [
+                { title: "首页", url: "lizihangwebapp://" },
+                { title: "二手房列表", url: "lizihangwebapp://" },
+                { title: "新房列表", url: "lizihangwebapp://" },
+                { title: "租房列表", url: "lizihangwebapp://" },
+                { title: "四合院列表", url: "lizihangwebapp://" },
+                { title: "海外频道页", url: "lizihangwebapp://" },
+                { title: "海外列表", url: "lizihangwebapp://" },
+                { title: "楼盘列表", url: "lizihangwebapp://" },
+                { title: "二手房详情页", url: "lizihangwebapp://" },
+                { title: "新房详情页", url: "lizihangwebapp://" },
+                { title: "新房房源详情页(特价房详情)", url: "lizihangwebapp://" },
+                { title: "新房 - 户型详情页", url: "lizihangwebapp://" },
+                { title: "租房详情页", url: "lizihangwebapp://" },
+                { title: "四合院买卖详情", url: "lizihangwebapp://" },
+                { title: "四合院租赁详情", url: "lizihangwebapp://" },
+                { title: "海外楼盘攻略", url: "lizihangwebapp://" },
+                { title: "楼盘攻略页", url: "lizihangwebapp://" },
+                { title: "主题推荐详情", url: "lizihangwebapp://" },
+                { title: "顾问列表页", url: "lizihangwebapp://" },
+                { title: "顾问详情页", url: "lizihangwebapp://" },
+                { title: "帮您找房", url: "lizihangwebapp://" },
+                { title: "委托租售", url: "lizihangwebapp://" }
+            ];
+
+          var container = document.getElementById("buttonCont");
+          for (var i = 1; i <= pages.length; i++) {
+            // Create a new button element
+            var button = document.createElement("button");
+            // Set the button's text
+            button.innerHTML = pages[i].title;
+            button.classList.add("btn", "btn-primary", "p-3", "m-2");
+            button.onclick = function() {
+                window.location.href = pages[i].url;
+            }
+            // Add the button to the container
+            container.appendChild(button);
+          }
+        }
+      </script>
+</head>
+<body onload="createButtons()">
+    <!-- 使用bootstrap写一个单个的点击列表 -->
+    <div class="container text-center bgcontainer">
+        <div class="row row-cols-1" id="buttonCont">
+        </div>
+    </div>
+</body>
+</html>
