@@ -2,7 +2,7 @@
  * @Author       : 许七安
  * @Date         : 2023-06-05 16:33:43
  * @LastEditors  : hyman
- * @LastEditTime : 2023-06-05 17:29:49
+ * @LastEditTime : 2023-06-06 14:15:48
  * @Description  : 请填写简介
 -->
 <!DOCTYPE html>
@@ -32,29 +32,30 @@
     </div>
 </body>
 <script>
-    let pages = [
-            { title: "首页", url: "lizihangwebapp://jumppage/page" },
-            { title: "二手房列表", url: "lizihangwebapp://" },
-            { title: "新房列表", url: "lizihangwebapp://" },
-            { title: "租房列表", url: "lizihangwebapp://" },
-            { title: "四合院列表", url: "lizihangwebapp://" },
-            { title: "海外频道页", url: "lizihangwebapp://" },
-            { title: "海外列表", url: "lizihangwebapp://" },
-            { title: "楼盘列表", url: "lizihangwebapp://" },
-            { title: "二手房详情页", url: "lizihangwebapp://" },
-            { title: "新房详情页", url: "lizihangwebapp://" },
-            { title: "新房房源详情页(特价房详情)", url: "lizihangwebapp://" },
-            { title: "新房 - 户型详情页", url: "lizihangwebapp://" },
-            { title: "租房详情页", url: "lizihangwebapp://" },
-            { title: "四合院买卖详情", url: "lizihangwebapp://" },
-            { title: "四合院租赁详情", url: "lizihangwebapp://" },
-            { title: "海外楼盘攻略", url: "lizihangwebapp://" },
-            { title: "楼盘攻略页", url: "lizihangwebapp://" },
-            { title: "主题推荐详情", url: "lizihangwebapp://" },
-            { title: "顾问列表页", url: "lizihangwebapp://" },
-            { title: "顾问详情页", url: "lizihangwebapp://" },
-            { title: "帮您找房", url: "lizihangwebapp://" },
-            { title: "委托租售", url: "lizihangwebapp://" }
+    var pages = [
+        { title: "首页", url: "lizihangwebapp://jumppage/page?pagecode=403100000001" },
+        { title: "二手房列表", url:"lizihangwebapp://jumppage/page?pagecode=403100000002" },
+        { title: "新房列表", url:"lizihangwebapp://jumppage/page?pagecode=403100000003"  },
+        { title: "租房列表", url: "lizihangwebapp://jumppage/page?pagecode=403100000004" },
+        { title: "四合院列表-出售", url: "lizihangwebapp://jumppage/page?pagecode=403100000005&type=103100000001" },
+        { title: "四合院列表-出租", url: "lizihangwebapp://jumppage/page?pagecode=403100000005&type=103100000002" },
+        { title: "海外频道页", url: "lizihangwebapp://jumppage/page?pagecode=403100000006" },
+        { title: "海外列表", url: "lizihangwebapp://jumppage/page?pagecode=403100000007" },
+        { title: "楼盘列表", url: "lizihangwebapp://jumppage/page?pagecode=403100000008" },
+        { title: "二手房详情页", url: "lizihangwebapp://jumppage/page?pagecode=403100000009&resblockId=1842&housedelid=814343" },
+        { title: "新房详情页", url: "lizihangwebapp://jumppage/page?pagecode=403100000010&resblockId=597257&prjid=2693" },
+        { title: "新房房源详情页(特价房详情)", url: "lizihangwebapp://jumppage/page?pagecode=403100000011&pkid=28816" },
+        { title: "新房 - 户型详情页", url: "lizihangwebapp://jumppage/page?pagecode=403100000012&houseTypeId=11482&resblockid=597267" },
+        { title: "租房详情页", url: "lizihangwebapp://jumppage/page?pagecode=403100000013&housedelid=908594&resblockid=5752" },
+        { title: "四合院买卖详情", url: "lizihangwebapp://jumppage/page?pagecode=403100000014&housedelid=878909" },
+        { title: "四合院租赁详情", url: "lizihangwebapp://jumppage/page?pagecode=403100000015&housedelid=900293" },
+        { title: "海外楼盘攻略", url: "lizihangwebapp://jumppage/page?pagecode=403100000016&prjid=363" },
+        { title: "楼盘攻略页", url: "lizihangwebapp://jumppage/page?pagecode=403100000017&resblockId=5752" },
+        { title: "主题推荐详情", url: "lizihangwebapp://jumppage/page?pagecode=403100000018&themeId=643e514249b2a9516ded7eee" },
+        { title: "顾问列表页", url: "lizihangwebapp://jumppage/page?pagecode=403100000019" },
+        { title: "顾问详情页", url: "lizihangwebapp://jumppage/page?pagecode=403100000020&counselorId=138886" },
+        { title: "帮您找房", url: "lizihangwebapp://jumppage/page?pagecode=403100000021" },
+        { title: "委托租售", url: "lizihangwebapp://jumppage/page?pagecode=403100000022" }
     ];
     function createButtons() {
 
@@ -79,3 +80,4 @@
     }
 </script>
 </html>
+
