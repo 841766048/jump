@@ -2,7 +2,7 @@
  * @Author       : 许七安
  * @Date         : 2023-06-05 16:33:43
  * @LastEditors  : hyman
- * @LastEditTime : 2023-06-08 14:53:28
+ * @LastEditTime : 2023-06-09 17:34:45
  * @Description  : 请填写简介
 -->
 <!DOCTYPE html>
@@ -43,7 +43,7 @@
         { title: "海外频道页", url: "lizihangwebapp://jumppage/page?pageCode=403100000006" },
         { title: "海外列表", url: "lizihangwebapp://jumppage/page?pageCode=403100000007" },
         { title: "楼盘列表", url: "lizihangwebapp://jumppage/page?pageCode=403100000008" },
-        { title: "二手房详情页", url: "lizihangwebapp://jumppage/page?pageCode=403100000009&houseDelId=811658&resblockId=597271&delegationType=103100000001&cityCode=110000" },
+        { title: "二手房详情页", url: "lizihangwebapp://jumppage/page?pageCode=403100000009&houseDelId=811658&resblockId=597271&delegationType=103100000001" },
         { title: "新房详情页", url: "lizihangwebapp://jumppage/page?pageCode=403100000010&resblockId=597257&prjId=2693" },
         { title: "新房房源详情页(特价房详情)", url: "lizihangwebapp://jumppage/page?pageCode=403100000011&pkId=28816" },
         { title: "新房 - 户型详情页", url: "lizihangwebapp://jumppage/page?pageCode=403100000012&houseTypeId=11482&resblockId=597267" },
@@ -58,6 +58,37 @@
         { title: "帮您找房", url: "lizihangwebapp://jumppage/page?pageCode=403100000021" },
         { title: "委托租售", url: "lizihangwebapp://jumppage/page?pageCode=403100000022" }
     ];
+    /**
+     * 判断手机类型
+     * return [ isAndroid, isIOS, isIOS9 ]
+     * */
+     function judgePhoneType() {
+        let isAndroid = false, isIOS = false, isIOS9 = false, version,
+            u = navigator.userAgent,
+            ua = u.toLowerCase();
+        //Android系统
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {   //android终端或者uc浏览器
+            isAndroid = true
+        }
+        //ios
+        if (ua.indexOf("like mac os x") > 0) {
+            let regStr_saf = /os [\d._]*/gi;
+            let verinfo = ua.match(regStr_saf);
+            version = (verinfo + "").replace(/[^0-9|_.]/ig, "").replace(/_/ig, ".");
+        }
+        let version_str = version + "";
+        // ios9以上
+        if (version_str !== "undefined" && version_str.length > 0) {
+            version = parseInt(version);
+            if (version >= 8) {
+                isIOS9 = true
+            } else {
+                isIOS = true
+            }
+        }
+        return {isAndroid, isIOS, isIOS9};
+    }
+
     function createButtons() {
 
       var container = document.getElementById("buttonCont");
@@ -71,6 +102,7 @@
         button.setAttribute("data-loop-index", i);
         // 点击事件
         button.addEventListener("click", function(event) {
+            let {isAndroid, isIOS, isIOS9} = judgePhoneType();
             var buttonIndex = parseInt(event.target.getAttribute("data-loop-index"));
             let hasApp = true, t = 1000,
                t1 = Date.now(),
@@ -91,18 +123,19 @@
                    hasApp = false;
                }
            }, t);
-
-           setTimeout(function () {
+           if (isIOS9) {
+            setTimeout(function () {
                 window.location.href = pages[buttonIndex].url;
-           }, 250);
-           setTimeout(function () {
-               location.reload();
-           }, 1000);
-//             var buttonIndex = parseInt(event.target.getAttribute("data-loop-index"));
-//             window.location.href = pages[buttonIndex].url;
+            }, 250);
+            setTimeout(function () {
+                location.reload();
+            }, 1000);
+           }
+            // window.location.href = pages[buttonIndex].url;
           // Or you can call a function based on the clickEvent value
           // eval(page.clickEvent + "(event)");
         });
+
         container.appendChild(button);
       }
     }
