@@ -124,12 +124,16 @@
                }
            }, t);
            if (isIOS9) {
+               location.href =  pages[buttonIndex].url;
             setTimeout(function () {
                 window.location.href = pages[buttonIndex].url;
             }, 250);
             setTimeout(function () {
                 location.reload();
             }, 1000);
+           }
+             if (isAndroid) {
+            location.href =  pages[buttonIndex].url;
            }
             // window.location.href = pages[buttonIndex].url;
           // Or you can call a function based on the clickEvent value
